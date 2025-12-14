@@ -50,27 +50,27 @@
 
 - Сети в разных зонах:
 
-![1.1.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/1.1.png?raw=true)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.1.png?raw=true)
 
 - Таблица маршрутизации через nat gateway:
 
-![1.2.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.2.png?raw=true)
 
 - Кластер MySQL:
 
-![1.3.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/1.3.png?raw=true)
+![1.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.3.png?raw=true)
 
 - Хосты:
 
-![1.4.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/1.4.png?raw=true)
+![1.4.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.4.png?raw=true)
 
 - Пользователи:
 
-![1.5.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/1.5.png?raw=true)
+![1.5.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.5.png?raw=true)
 
 - База данных:
 
-![1.7.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/1.6.png?raw=true)
+![1.7.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.7.png?raw=true)
 
 2. Настроим с помощью Terraform кластер Kubernetes:
 
@@ -82,43 +82,43 @@
 
 - Сервисный аккаунт:
 
-![2.1.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.1.png?raw=true)
 
 - Группа безопасности:
 
-![2.2.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.2.png?raw=true)
+![2.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.2.png?raw=true)
 
 - Ключ шифрования:
 
-![2.3.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.3.png?raw=true)
+![2.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.3.png?raw=true)
 
 - Кластер:
 
-![2.4.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.4.png?raw=true)
+![2.4.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.4.png?raw=true)
 
 - Группы узлов с автомасштабированием:
 
-![2.5.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.5.png?raw=true)
+![2.5.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.5.png?raw=true)
 
 - Ноды:
 
-![2.6.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.6.png?raw=true)
+![2.6.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.6.png?raw=true)
 
 - Подключаемся к кластеру с помощью kubectl и проверяем список нод:
 
-![2.7.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.7.png?raw=true)
+![2.7.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.7.png?raw=true)
 
 - Создание микросервиса phpmyadmin с сервисом Load Balancer описываем также в [**k8s.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/k8s.tf), из [**outputs.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/outputs.tf) берем IP балансера и адрес базы данных:
 
-![2.8.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.8.png?raw=true)
+![2.8.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.8.png?raw=true)
 
 - Проверяем что страница доступна:
 
-![2.9.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.9.png?raw=true)
+![2.9.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.9.png?raw=true)
 
 - И подключаемся к базе данных:
 
-![2.10.png](https://github.com/Liberaty/rp_hw_04/blob/main/img/2.10.png?raw=true)
+![2.10.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.10.png?raw=true)
 
 ### Правила приёма работы
 
