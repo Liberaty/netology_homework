@@ -10,11 +10,11 @@
 ### Чек-лист готовности к домашнему заданию
 
 1. Скачайте и установите **Terraform** версии >=1.8.4 . Приложите скриншот вывода команды ```terraform --version```.\
-***Ответ:*** [chek-list-1.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/chek-list-1.png)
+***Ответ:*** [chek-list-1.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/chek-list-1.png?raw=true)
 2. Скачайте на свой ПК этот git-репозиторий. Исходный код для выполнения задания расположен в директории **01/src**.\
-***Ответ:*** [chek-list-2.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/chek-list-2.png)
+***Ответ:*** [chek-list-2.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/chek-list-2.png?raw=true)
 3. Убедитесь, что в вашей ОС установлен docker.\
-***Ответ:*** [chek-list-3.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/chek-list-3.png)
+***Ответ:*** [chek-list-3.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/chek-list-3.png?raw=true)
 
 ------
 
@@ -41,24 +41,24 @@
 - на 29 строке было не верно указано имя ресурса random_string**_FAKE**, данное имя не было бы найдено
 - на 29 строчке значение аргумента resul**T** было написано с ошибкой и использовались 2 последняя буква в верхнем регистре, что не верно.
 
-Итоговый вариант смотреть на скриншоте [1.4.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.4.png)
+Итоговый вариант смотреть на скриншоте [1.4.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.4.png?raw=true)
 
 5. Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды ```docker ps```.
 
-***Ответ:*** исправленный фрагмент кода указан на скриншоте [1.4.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.4.png) и [1.5.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.5.png)
+***Ответ:*** исправленный фрагмент кода указан на скриншоте [1.4.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.4.png?raw=true) и [1.5.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.5.png?raw=true)
 
 6. Замените имя docker-контейнера в блоке кода на ```hello_world```. Не перепутайте имя контейнера и имя образа. Мы всё ещё продолжаем использовать ```name = "nginx:latest"```. Выполните команду ```terraform apply -auto-approve```.
 Объясните своими словами, в чём может быть опасность применения ключа  ```-auto-approve```. Догадайтесь или нагуглите зачем может пригодиться данный ключ? В качестве ответа дополнительно приложите вывод команды ```docker ps```.
 
-***Ответ:*** Ключ ```-auto-approve``` делает так, чтобы команде ```terraform apply``` более не требовалось подтверждение на выполнение. Ну опасность в том, что ты даже не знаешь, правильную конфигурацию ты применяешь или нет, ты увидишь план выполнения при том что уже будет поздно восстанавливать, он просто применится и всё. Как можно использовать? Ну однозначно в тестовой среде какой-то, для автоматизации может, где сначала выполнить команду план, провести какие-то тесты и только потом запускать, когда уверен на 100% (в CI/CD например). А вывод команды ```sudo docker ps``` можно увидеть на скриншотах [1.6.1.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.6.1.png) и [1.6.2.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.6.2.png).
+***Ответ:*** Ключ ```-auto-approve``` делает так, чтобы команде ```terraform apply``` более не требовалось подтверждение на выполнение. Ну опасность в том, что ты даже не знаешь, правильную конфигурацию ты применяешь или нет, ты увидишь план выполнения при том что уже будет поздно восстанавливать, он просто применится и всё. Как можно использовать? Ну однозначно в тестовой среде какой-то, для автоматизации может, где сначала выполнить команду план, провести какие-то тесты и только потом запускать, когда уверен на 100% (в CI/CD например). А вывод команды ```sudo docker ps``` можно увидеть на скриншотах [1.6.1.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.6.1.png?raw=true) и [1.6.2.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.6.2.png?raw=true).
 
 8. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**.
 
-***Ответ:*** Данные уничтожил командой ```terraform destroy```, увидеть это можно на скриншоте [1.7.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.7.png)
+***Ответ:*** Данные уничтожил командой ```terraform destroy```, увидеть это можно на скриншоте [1.7.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.7.png?raw=true)
 
 9. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ**, а затем **ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ** строчкой из документации [**terraform провайдера docker**](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs).  (ищите в классификаторе resource docker_image)
 
-***Ответ:*** Потому что указан аргумент ```keep_locally = true``` - эта команда говорит не удалять **Docker Image**, указаный в этом блоке. Подтверждение на скриншоте [1.8.png](https://github.com/Liberaty/ter_hw_1/blob/master/img/1.8.png)
+***Ответ:*** Потому что указан аргумент ```keep_locally = true``` - эта команда говорит не удалять **Docker Image**, указаный в этом блоке. Подтверждение на скриншоте [1.8.png](https://github.com/Liberaty/netology_homework/blob/main/2.%20terraform/hw-01/img/1.8.png?raw=true)
 
 ------
 
