@@ -105,7 +105,7 @@
     - VictoriaMetrics - гибридная система мониторинга
     - Nagios - тип PULL
 #
-7. Склонируйте себе [репозиторий](https://github.com/influxdata/sandbox/tree/master) и запустите TICK-стэк, 
+7. Склонируйте себе [**репозиторий**](https://github.com/influxdata/sandbox/tree/master) и запустите TICK-стэк, 
 используя технологии docker и docker-compose.
 
 В виде решения на это упражнение приведите скриншот веб-интерфейса ПО chronograf (`http://localhost:8888`). 
@@ -114,7 +114,7 @@ P.S.: если при запуске некоторые контейнеры б�
 `./data:/var/lib:Z`
 #
 ***Ответ***
-![1.1.png](https://github.com/Liberaty/mon_hw_1/blob/main/img/1.1.png)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_1/img/1.1.png?raw=true)
 #
 8. Перейдите в веб-интерфейс Chronograf (http://localhost:8888) и откройте вкладку Data explorer.
         
@@ -126,10 +126,10 @@ P.S.: если при запуске некоторые контейнеры б�
 Для выполнения задания приведите скриншот с отображением метрик утилизации cpu из веб-интерфейса.
 #
 ***Ответ***
-![1.2.png](https://github.com/Liberaty/mon_hw_1/blob/main/img/1.2.png)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_1/img/1.2.png?raw=true)
 #
-9. Изучите список [telegraf inputs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
-Добавьте в конфигурацию telegraf следующий плагин - [docker](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
+9. Изучите список [**telegraf inputs**](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
+Добавьте в конфигурацию telegraf следующий плагин - [**docker**](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
 ```
 [[inputs.docker]]
   endpoint = "unix:///var/run/docker.sock"
@@ -156,5 +156,5 @@ P.S.: если при запуске некоторые контейнеры б�
 веб-интерфейсе базы telegraf.autogen . Там должны появиться метрики, связанные с docker.
 #
 ***Ответ***
-![1.3.png](https://github.com/Liberaty/mon_hw_1/blob/main/img/1.3.png)
+![1.3.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_1/img/1.3.png?raw=true)
 #
