@@ -29,41 +29,41 @@
 
    - Проверяем, что ключ создался:
 
-   ![1.1.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/1.1.png?raw=true)
+   ![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/1.1.png?raw=true)
 
    - Файл зашифрован:
 
-   ![1.2.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/1.2.png?raw=true)
+   ![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/1.2.png?raw=true)
 
    - Теперь при попытке открыть файл по ссылке, получаем ошибку **AccessDenied**:
 
-   ![1.3.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/1.3.png?raw=true)
+   ![1.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/1.3.png?raw=true)
 
    - Однако можно сгенерировать ссылку и файл по ней будет доступен:
 
-   ![1.4.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/1.4.png?raw=true)
+   ![1.4.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/1.4.png?raw=true)
 
 2. Создаём отдельный статический сайт в Object Storage c собственным публичным адресом с уже имеющимся доменом и делаем его доступным по HTTPS.
 
    - Добавляем сгенерированный сертификат:
 
-   ![2.1.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/2.1.png?raw=true)
+   ![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/2.1.png?raw=true)
 
    - Создаем страницу и добавляем ее в бакет:
 
-   ![2.2.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/2.2.png?raw=true)
+   ![2.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/2.2.png?raw=true)
 
    - В настройках бакета выбираем веб-сайт и указываем загруженную страницу:
 
-   ![2.3.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/2.3.png?raw=true)
+   ![2.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/2.3.png?raw=true)
 
    - В настройках бакета уже выбран сертификат:
 
-   ![2.4.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/2.4.png?raw=true)
+   ![2.4.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/2.4.png?raw=true)
 
    - Заходим на страницу (в моём случае на https://snakenet.ru) и видим, что сама страница отображается и что подключение защищено:
 
-   ![2.5.png](https://github.com/Liberaty/rp_hw_03/blob/main/img/2.5.png?raw=true)
+   ![2.5.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/img/2.5.png?raw=true)
 
 
 Пример bootstrap-скрипта:

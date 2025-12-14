@@ -43,59 +43,59 @@
 
 1. Проверяем ```terraform plan```, что создадутся все необходимые ресурсы:
 
-![1.1.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/1.1.png?raw=true)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/1.1.png?raw=true)
 
-В том числе s3 из [**bucket.tf**](https://github.com/Liberaty/rp_hw_02/blob/main/bucket.tf)
+В том числе s3 из [**bucket.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/bucket.tf)
 
-![1.2.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/1.2.png?raw=true)
 
 После применения убеждаемся, что s3 создался и картинка в нем:
 
-![1.3.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/1.3.png?raw=true)
+![1.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/1.3.png?raw=true)
 
 И картинка доступна из интернета по адресу https://lepishin-12112025.storage.yandexcloud.net/image.jpg (скриншот сделан в telegram, где при указании ссылки она сразу же загружается):
 
-![1.4.jpg](https://github.com/Liberaty/rp_hw_02/blob/main/img/1.4.jpg?raw=true)
+![1.4.jpg](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/1.4.png?raw=true)
 
 2. Убеждаемся, что создалась группа из трех ВМ в public подсети:
 
-![2.0.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.0.png?raw=true)
+![2.0.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.0.png?raw=true)
 
-![2.1.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.1.png?raw=true)
 
-![2.2.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.2.png?raw=true)
+![2.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.2.png?raw=true)
 
-![2.3.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.3.png?raw=true)
+![2.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.3.png?raw=true)
 
    Проверяем, что страница доступна по публичному IP каждой из ВМ:
 
-![2.4.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.4.png?raw=true)
+![2.4.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.4.png?raw=true)
 
-![2.5.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.5.png?raw=true)
+![2.5.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.5.png?raw=true)
 
-![2.6.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/2.6.png?raw=true)
+![2.6.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/2.6.png?raw=true)
 
-3. Убеждаемся, что сетевой балансировщик из [**nlb.tf**](https://github.com/Liberaty/rp_hw_02/blob/main/nlb.tf) создался в облаке:
+3. Убеждаемся, что сетевой балансировщик из [**nlb.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/nlb.tf) создался в облаке:
 
-![3.1.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/3.1.png?raw=true)
+![3.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/3.1.png?raw=true)
 
-![3.2.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/3.2.png?raw=true)
+![3.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/3.2.png?raw=true)
 
 И проверим, что страница открывается по публичному IP балансировщика:
 
-![3.3.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/3.3.png?raw=true)
+![3.3.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/3.3.png?raw=true)
 
 При остановке одной из машин, все продолжает работать
 
-![3.4.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/3.4.png?raw=true)
+![3.4.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/3.4.png?raw=true)
 
-4. Убеждаемся, что Application Load Balancer из [**alb.tf**](https://github.com/Liberaty/rp_hw_02/blob/main/alb.tf) успешно создался
+4. Убеждаемся, что Application Load Balancer из [**alb.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/alb.tf) успешно создался
 
-![4.1.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/4.1.png?raw=true)
+![4.1.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/4.1.png?raw=true)
 
 И проверяем, что страница открывается по публичному IP alb:
 
-![4.2.png](https://github.com/Liberaty/rp_hw_02/blob/main/img/4.2.png?raw=true)
+![4.2.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-02/img/4.2.png?raw=true)
 
 
 Пример bootstrap-скрипта:
