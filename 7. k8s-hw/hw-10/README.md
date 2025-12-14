@@ -28,9 +28,9 @@
 ***Ответ***
 
 - Создаем чарт командой ```helm create myapp-chart```
-- наполняем его templates файлами для деплоя nginx ([*nginx-deployment.yaml*](https://github.com/Liberaty/k8s_hw_10/blob/main/myapp-chart/templates/nginx-deployment.yaml) и [*nginx-service.yaml*](https://github.com/Liberaty/k8s_hw_10/blob/main/myapp-chart/templates/nginx-service.yaml)) и redis ([*redis-statefulset.yaml*](https://github.com/Liberaty/k8s_hw_10/blob/main/myapp-chart/templates/redis-statefulset.yaml) и [*redis-service.yaml*](https://github.com/Liberaty/k8s_hw_10/blob/main/myapp-chart/templates/redis-service.yaml)). Также изменяем файлы [*Chart.yaml*](https://github.com/Liberaty/k8s_hw_10/blob/main/myapp-chart/Chart.yaml) и [*values.yaml*](https://github.com/Liberaty/k8s_hw_10/blob/main/myapp-chart/values.yaml)
+- наполняем его templates файлами для деплоя nginx ([**nginx-deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/myapp-chart/templates/nginx-deployment.yaml) и [**nginx-service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/myapp-chart/templates/nginx-service.yaml)) и redis ([**redis-statefulset.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/myapp-chart/templates/redis-statefulset.yaml) и [**redis-service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/myapp-chart/templates/redis-service.yaml)). Также изменяем файлы [**Chart.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/myapp-chart/Chart.yaml) и [**values.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/myapp-chart/values.yaml)
 
-![1.1.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/1.1.png?raw=true)
+![1.1.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/1.1.png?raw=true)
 
 2. Каждый компонент приложения деплоится отдельным deployment’ом или statefulset’ом.
 #
@@ -38,11 +38,11 @@
 
 - Находясь в папке с чартом, устанавливаем его командой ```helm install myapp .```
 
-![1.2.1.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/1.2.1.png?raw=true)
+![1.2.1.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/1.2.1.png?raw=true)
 
 - Проверяем, что все создалось
 
-![1.2.2.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/1.2.2.png?raw=true)
+![1.2.2.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/1.2.2.png?raw=true)
 
 3. В переменных чарта измените образ приложения для изменения версии.
 #
@@ -50,7 +50,7 @@
 
 - Пробуем изменить образ приложения, поменяв версию nginx командой ```helm upgrade myapp . --set nginx.image="nginx:1.26.0"```
 
-![1.3.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/1.3.png?raw=true)
+![1.3.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/1.3.png?raw=true)
 
 ------
 ### Задание 2. Запустить две версии в разных неймспейсах
@@ -80,15 +80,15 @@
 
 - Проверим, что установилось 3 версии приложения
 
-![2.2.1.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/2.2.1.png?raw=true)
+![2.2.1.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/2.2.1.png?raw=true)
 
 - Также проверяем, что все поды и сервисы в статусе Running
 
-![2.2.2.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/2.2.2.png?raw=true)
+![2.2.2.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/2.2.2.png?raw=true)
 
 - И проверим, что в каждом поде версии nginx, указанные при установке
 
-![2.2.3.img](https://github.com/Liberaty/k8s_hw_10/blob/main/img/2.2.3.png?raw=true)
+![2.2.3.img](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-10/img/2.2.3.png?raw=true)
 
 
 3. Продемонстрируйте результат.
