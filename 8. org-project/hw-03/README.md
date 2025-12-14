@@ -25,7 +25,7 @@
 
 ## Решение
 
-1. В [**main.tf**](https://github.com/Liberaty/rp_hw_03/blob/main/main.tf) создаем kms ключ и шифруем им s3-bucket.
+1. В [**main.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-03/main.tf) создаем kms ключ и шифруем им s3-bucket.
 
    - Проверяем, что ключ создался:
 

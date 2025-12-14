@@ -42,9 +42,9 @@
 
 1. Настроим с помощью Terraform кластер баз данных MySQL:
 
-- Описываем переменные в [**variables.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/variables.tf), где указываем private и public сети во всех 3 зонах яндекса. Далее в файле [**vpc.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/vpc.tf) опишем создание ресурсов сетей, nat шлюза и таблицы маршрутизации.
+- Описываем переменные в [**variables.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/variables.tf), где указываем private и public сети во всех 3 зонах яндекса. Далее в файле [**vpc.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/vpc.tf) опишем создание ресурсов сетей, nat шлюза и таблицы маршрутизации.
 
-- В файле [**mysql.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/mysql.tf) описываем создание кластера с необходимыми параметрами и созданием БД.
+- В файле [**mysql.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/mysql.tf) описываем создание кластера с необходимыми параметрами и созданием БД.
 
 После применения конфигурации, проверим, что все ресурсы создались в облаке:
 
@@ -74,9 +74,9 @@
 
 2. Настроим с помощью Terraform кластер Kubernetes:
 
-- Опишем создание кластера с сервисными аккаунтами в [**k8s.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/k8s.tf), добавим в [**variables.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/variables.tf) необходимые переменные
+- Опишем создание кластера с сервисными аккаунтами в [**k8s.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/k8s.tf), добавим в [**variables.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/variables.tf) необходимые переменные
 
-- Добавим возможность шифрования ключом из [**kms.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/kms.tf)
+- Добавим возможность шифрования ключом из [**kms.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/kms.tf)
 
 После применения конфигурации, проверим, что все ресурсы создались в облаке:
 
@@ -108,7 +108,7 @@
 
 ![2.7.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.7.png?raw=true)
 
-- Создание микросервиса phpmyadmin с сервисом Load Balancer описываем также в [**k8s.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/k8s.tf), из [**outputs.tf**](https://github.com/Liberaty/rp_hw_04/blob/main/outputs.tf) берем IP балансера и адрес базы данных:
+- Создание микросервиса phpmyadmin с сервисом Load Balancer описываем также в [**k8s.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/k8s.tf), из [**outputs.tf**](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/outputs.tf) берем IP балансера и адрес базы данных:
 
 ![2.8.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/2.8.png?raw=true)
 
