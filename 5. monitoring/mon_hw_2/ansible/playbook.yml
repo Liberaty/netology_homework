@@ -1,0 +1,23 @@
+- name: Установка Prometheus
+  hosts: prometheus
+  become: true
+  roles:
+    - role: prometheus
+
+- name: Установка Alertmanager
+  hosts: alertmanager
+  become: true
+  roles:
+    - role: alertmanager
+
+- name: Установка Grafana
+  hosts: grafana
+  become: true
+  roles:
+    - role: grafana
+
+- name: Установка Node Exporter
+  hosts: node
+  become: true
+  roles:
+    - role: node-exporter

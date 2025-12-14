@@ -1,0 +1,61 @@
+[server]
+# Привязка к IP (0.0.0.0 — доступ со всех интерфейсов)
+http_addr = 0.0.0.0
+# Порт, на котором будет слушать Grafana
+http_port = {{ grafana_port }}
+# Адрес, по которому доступна Grafana (для reverse proxy)
+domain = {{ ansible_host }}
+# Включить/выключить редирект с HTTP на HTTPS
+enable_gzip = false
+# Режим: production, development, test
+;protocol = http
+
+[security]
+# Автоматически переназначить пароль администратора при старте
+admin_user = admin
+admin_password = admin
+# Отключить сброс пароля
+disable_login_form = false
+# Разрешить анонимный доступ (false — только авторизованные)
+;allow_anonymous = false
+# Разрешить анонимный доступ к API
+;allow_anonymous = false
+
+[users]
+# Разрешить регистрацию новых пользователей
+allow_sign_up = true
+# Автоматически добавлять новых пользователей в организацию
+auto_assign_org = true
+# Роль по умолчанию: Viewer, Editor, Admin
+auto_assign_org_role = Editor
+
+[auth.anonymous]
+# Отключить анонимный доступ
+enabled = false
+
+[auth.basic]
+# Включить базовую аутентификацию
+enabled = true
+
+[analytics]
+# Отключить сбор телеметрии
+reporting_enabled = false
+send_name = false
+send_version = false
+
+[log]
+# Уровень логирования
+mode = console
+level = info
+
+[database]
+# Используем встроенную SQLite (подходит для тестов)
+type = sqlite3
+path = /var/lib/grafana/grafana.db
+
+[paths]
+# Пути к данным
+data = /var/lib/grafana
+logs = /var/log/grafana
+plugins = /var/lib/grafana/plugins
+provisioning = /etc/grafana/provisioning

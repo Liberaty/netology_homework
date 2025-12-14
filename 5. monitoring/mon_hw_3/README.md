@@ -20,27 +20,27 @@ Filebeat следует сконфигурировать для отправки
 - скриншот `docker ps` через 5 минут после старта всех контейнеров (их должно быть 5);
 ***Ответ***
 #
-![1.1.png](https://github.com/Liberaty/mon_hw_3/blob/main/img/1.1.png?raw=true)  
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_3/img/1.1.png?raw=true)  
 
 - скриншот интерфейса kibana;
 ***Ответ***
 #
-![1.2.png](https://github.com/Liberaty/mon_hw_3/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_3/img/1.2.png?raw=true)
 
 
 
 
 ## Задание 2
 
-Перейдите в меню [создания index-patterns  в kibana](http://51.250.78.160:5601/app/management/kibana/indexPatterns/create) и создайте несколько index-patterns из имеющихся.  
+Перейдите в меню [создания index-patterns в kibana](http://51.250.78.160:5601/app/management/kibana/indexPatterns/create) и создайте несколько index-patterns из имеющихся.  
 ***Ответ***
 #
-![2.1.png](https://github.com/Liberaty/mon_hw_3/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_3/img/2.1.png?raw=true)
 
 Перейдите в меню просмотра логов в kibana (Discover) и самостоятельно изучите, как отображаются логи и как производить поиск по логам.
 ***Ответ***
 #
-![2.2.png](https://github.com/Liberaty/mon_hw_3/blob/main/img/2.2.png?raw=true)
+![2.2.png](https://github.com/Liberaty/netology_homework/blob/main/5.%20monitoring/mon_hw_3/img/2.2.png?raw=true)
 
 
 В манифесте директории help также приведенно dummy-приложение, которое генерирует рандомные события в stdout-контейнера.

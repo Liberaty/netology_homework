@@ -1,0 +1,253 @@
+---
+- name: Установка зависимостей
+  ansible.builtin.apt:
+    name:
+      - wget
+      - gnupg
+      - apt-transport-https
+      - ca-certificates
+      - software-properties-common
+    state: present
+
+- name: Создание директории для GPG ключа
+  ansible.builtin.file:
+    path: "{{ grafana_gpg_dir }}"
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: Проверка существования директории GPG ключа
+  ansible.builtin.stat:
+    path: "{{ grafana_gpg_dir }}"
+  register: keyrings_dir
+
+- name: Убедиться, что /etc/apt/keyrings — это директория
+  ansible.builtin.assert:
+    that:
+      - keyrings_dir.stat.isdir is true
+    fail_msg: "Ошибка: /etc/apt/keyrings существует, но это не директория!"
+    success_msg: "OK: /etc/apt/keyrings — это директория"
+
+- name: Копирование бинарного GPG-ключа Grafana (уже в формате .gpg)
+  ansible.builtin.copy:
+    src: files/grafana.gpg
+    dest: "{{ grafana_gpg_dir }}/grafana.gpg"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Проверка наличия GPG-ключа Grafana
+  ansible.builtin.stat:
+    path: "{{ grafana_gpg_dir }}/grafana.gpg"
+  register: grafana_key
+
+- name: Убедиться, что ключ Grafana существует и это файл
+  ansible.builtin.assert:
+    that:
+      - grafana_key.stat.exists
+      - grafana_key.stat.isreg is true
+    fail_msg: "Ошибка: {{ grafana_gpg_dir }}/grafana.gpg не существует или это не обычный файл!"
+    success_msg: "OK: GPG-ключ Grafana найден"
+
+- name: Проверка формата GPG-ключа (должен быть бинарным OpenPGP)
+  ansible.builtin.command: file /etc/apt/keyrings/grafana.gpg
+  register: file_check
+  changed_when: false
+  # Эта задача всегда будет "ok", но мы проверим вывод
+
+- name: Убедиться, что ключ — бинарный OpenPGP (не ASCII)
+  ansible.builtin.assert:
+    that:
+      - "'OpenPGP Public Key' in file_check.stdout"
+      - "'ASCII' not in file_check.stdout"
+    fail_msg: "Ошибка: GPG-ключ в неправильном формате (возможно, ASCII-armored, а не binary)"
+    success_msg: "OK: GPG-ключ в правильном бинарном формате"
+
+- name: Добавление репозитория Grafana (через зеркало Яндекса)
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/grafana.list
+    line: 'deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://mirror.yandex.ru/mirrors/packages.grafana.com/oss/deb stable main'
+    create: true
+    mode: '0644'
+    insertafter: EOF
+
+- name: Проверка наличия репозитория Grafana в sources.list.d
+  ansible.builtin.stat:
+    path: /etc/apt/sources.list.d/grafana.list
+  register: grafana_repo_file
+
+- name: Убедиться, что файл репозитория Grafana существует
+  ansible.builtin.assert:
+    that:
+      - grafana_repo_file.stat.exists
+    fail_msg: "Ошибка: Файл репозитория /etc/apt/sources.list.d/grafana.list не найден!"
+    success_msg: "OK: Файл репозитория Grafana существует"
+
+- name: Проверка содержимого репозитория (должен использовать signed-by)
+  ansible.builtin.assert:
+    that:
+      - "'signed-by=/etc/apt/keyrings/grafana.gpg' in lookup('file', '/etc/apt/sources.list.d/grafana.list')"
+    fail_msg: "Ошибка: Репозиторий Grafana не использует signed-by!"
+    success_msg: "OK: Репозиторий Grafana использует signed-by"
+
+- name: Обновление кеша пакетов
+  ansible.builtin.apt:
+    update_cache: yes
+  register: apt_update_result
+  retries: 3
+  delay: 5
+  until: apt_update_result is succeeded
+
+- name: Установка Grafana
+  ansible.builtin.apt:
+    name: grafana
+    state: present
+  notify: Перезагрузка Grafana
+
+- name: Проверка, что пакет Grafana установлен
+  ansible.builtin.package_facts:
+    manager: auto
+
+- name: Убедиться, что пакет grafana присутствует в системе
+  ansible.builtin.assert:
+    that:
+      - "'grafana' in ansible_facts.packages"
+    fail_msg: "Ошибка: Пакет Grafana не установлен!"
+    success_msg: "OK: Пакет Grafana установлен"
+
+- name: Проверка наличия бинарника grafana-server
+  ansible.builtin.stat:
+    path: /usr/sbin/grafana-server
+  register: grafana_binary
+
+- name: Убедиться, что бинарник Grafana существует
+  ansible.builtin.assert:
+    that:
+      - grafana_binary.stat.exists
+      - grafana_binary.stat.isreg is true
+    fail_msg: "Ошибка: Бинарник Grafana (/usr/sbin/grafana-server) не найден!"
+    success_msg: "OK: Бинарник Grafana найден"
+
+- name: Проверка наличия systemd-юнита
+  ansible.builtin.stat:
+    path: /lib/systemd/system/grafana-server.service
+  register: grafana_service_file
+
+- name: Убедиться, что systemd-юнит Grafana существует
+  ansible.builtin.assert:
+    that:
+      - grafana_service_file.stat.exists
+    fail_msg: "Ошибка: Файл юнита /lib/systemd/system/grafana-server.service не найден!"
+    success_msg: "OK: Юнит Grafana найден"
+
+- name: Копирование конфигурации grafana.ini
+  ansible.builtin.template:
+    src: grafana.ini.j2
+    dest: "{{ grafana_config_dir }}/grafana.ini"
+    owner: "{{ grafana_user }}"
+    group: "{{ grafana_user }}"
+    mode: '0644'
+  notify: Перезагрузка Grafana
+
+- name: Проверка наличия файла grafana.ini
+  ansible.builtin.stat:
+    path: "{{ grafana_config_dir }}/grafana.ini"
+  register: grafana_ini_file
+
+- name: Убедиться, что grafana.ini существует
+  ansible.builtin.assert:
+    that:
+      - grafana_ini_file.stat.exists
+      - grafana_ini_file.stat.isreg is true
+    fail_msg: "Ошибка: Файл конфигурации {{ grafana_config_dir }}/grafana.ini не найден!"
+    success_msg: "OK: Файл grafana.ini существует"
+
+- name: Проверка владельца и прав grafana.ini
+  ansible.builtin.stat:
+    path: "{{ grafana_config_dir }}/grafana.ini"
+  register: grafana_ini_stat
+
+- name: Получение UID пользователя grafana
+  ansible.builtin.command: id -u {{ grafana_user }}
+  register: grafana_uid_result
+  changed_when: false
+  check_mode: false
+
+- name: Получение GID пользователя grafana
+  ansible.builtin.command: id -g {{ grafana_user }}
+  register: grafana_gid_result
+  changed_when: false
+  check_mode: false
+
+- name: Убедиться, что права grafana.ini — 0644, владелец — {{ grafana_user }}
+  ansible.builtin.assert:
+    that:
+      - grafana_ini_stat.stat.mode == "0644"
+      - grafana_ini_stat.stat.uid == (grafana_uid_result.stdout | int)
+      - grafana_ini_stat.stat.gid == (grafana_gid_result.stdout | int)
+    fail_msg: "Ошибка: Неправильные права или владелец у grafana.ini!"
+    success_msg: "OK: Права и владелец grafana.ini корректны"
+
+- name: Создание директорий для Grafana
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ grafana_user }}"
+    group: "{{ grafana_user }}"
+    mode: '0755'
+  loop:
+    - "{{ grafana_data_dir }}"
+    - "{{ grafana_log_dir }}"
+    - "{{ grafana_plugins_dir }}"
+    - "{{ grafana_provisioning_dir }}"
+
+- name: Проверка всех директорий Grafana
+  ansible.builtin.stat:
+    path: "{{ item }}"
+  register: dir_stats
+  loop:
+    - "{{ grafana_data_dir }}"
+    - "{{ grafana_log_dir }}"
+    - "{{ grafana_plugins_dir }}"
+    - "{{ grafana_provisioning_dir }}"
+
+- name: Убедиться, что все директории Grafana существуют и настроены
+  ansible.builtin.assert:
+    that:
+      - item.stat.exists
+      - item.stat.isdir is true
+      - item.stat.mode == "0755"
+      - item.stat.uid == (grafana_uid_result.stdout | int)
+      - item.stat.gid == (grafana_gid_result.stdout | int)
+    fail_msg: "Ошибка: Директория {{ item.item }} не создана или настроена неправильно!"
+    success_msg: "OK: Директория {{ item.item }} существует и настроена"
+  loop: "{{ dir_stats.results }}"
+
+- name: Включение и запуск Grafana
+  ansible.builtin.service:
+    name: grafana-server
+    state: started
+    enabled: true
+
+- name: Получение состояния сервиса Grafana
+  ansible.builtin.systemd:
+    name: grafana-server
+    state: started
+    enabled: true
+  changed_when: false
+  register: grafana_service_status
+
+- name: Убедиться, что сервис Grafana активен и в автозагрузке
+  ansible.builtin.assert:
+    that:
+      - grafana_service_status.status.ActiveState == "active"
+      - grafana_service_status.status.SubState == "running"
+      - grafana_service_status.status.LoadState == "loaded"
+      - grafana_service_status.enabled is sameas true
+    fail_msg: >
+      Ошибка: Сервис Grafana не активен!
+      ActiveState: {{ grafana_service_status.status.ActiveState }}
+      SubState: {{ grafana_service_status.status.SubState }}
+      Enabled: {{ grafana_service_status.enabled }}
+    success_msg: "OK: Сервис Grafana активен и включён в автозагрузку"

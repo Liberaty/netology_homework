@@ -1,0 +1,10 @@
+---
+- name: Перезагрузка systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+    # no-reload не нужен — мы явно хотим перезагрузить
+
+- name: Перезапуск Prometheus
+  ansible.builtin.service:
+    name: prometheus
+    state: restarted

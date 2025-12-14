@@ -1,0 +1,17 @@
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+ExecStart=/opt/node_exporter/node_exporter \
+  --collector.systemd \
+  --collector.cpu \
+  --collector.meminfo \
+  --collector.filesystem \
+  --collector.loadavg
+Restart=always
+User={{ node_exporter_user | default('root') }}
+AmbientCapabilities=CAP_NET_RAW
+
+[Install]
+WantedBy=multi-user.target

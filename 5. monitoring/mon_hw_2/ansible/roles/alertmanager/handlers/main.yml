@@ -1,0 +1,6 @@
+---
+- name: Перезагрузка alertmanager
+  ansible.builtin.service:
+    name: alertmanager
+    state: restarted
+    daemon_reload: true

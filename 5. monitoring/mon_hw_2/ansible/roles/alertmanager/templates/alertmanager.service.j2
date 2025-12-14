@@ -1,0 +1,14 @@
+[Unit]
+Description=Alertmanager
+After=network.target
+
+[Service]
+User={{ alertmanager_user }}
+Group={{ alertmanager_user }}
+ExecStart=/opt/alertmanager/alertmanager \
+  --config.file=/opt/alertmanager/alertmanager.yml
+Restart=always
+WorkingDirectory={{ alertmanager_dir }}
+
+[Install]
+WantedBy=multi-user.target

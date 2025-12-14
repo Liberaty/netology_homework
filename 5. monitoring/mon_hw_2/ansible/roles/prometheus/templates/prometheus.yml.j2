@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s # интервал сбора и очистки данных с целей
+  evaluation_interval: 15s # интервал вычисления правил сбора
+  # scrape_timeout is set to the global default (10s).
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['{{ hostvars[groups.alertmanager.0].ansible_host }}:{{ alertmanager_port }}']
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  - job_name: 'prometheus' # имя задания, которое будет собирать данные
+    static_configs: # целевые адреса целей в рамках указанного задания
+      - targets: ['localhost:9090']
+
+  - job_name: 'alertmanager'
+    static_configs:
+      - targets: ['{{ hostvars[groups.alertmanager.0].ansible_host }}:{{ alertmanager_port }}']
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['{{ hostvars[groups.node.0].ansible_host }}:{{ node_exporter_port }}']

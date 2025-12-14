@@ -24,7 +24,7 @@
 1. Используя директорию [help](./help) внутри этого домашнего задания, запустите связку prometheus-grafana.
 #
 ***Ответ***
-Поднял всё это исключительно с помощью [Terraform](https://github.com/Liberaty/mon_hw_2/tree/main/terraform) и [Ansible](https://github.com/Liberaty/mon_hw_2/tree/main/ansible)
+Поднял всё это исключительно с помощью [**Terraform**](https://github.com/Liberaty/mon_hw_2/tree/main/terraform) и [**Ansible**](https://github.com/Liberaty/mon_hw_2/tree/main/ansible)
 #
 ![1.1.png](https://github.com/Liberaty/mon_hw_2/blob/main/img/1.1.png?raw=true)
 #
@@ -107,7 +107,7 @@ Free Disk Space (GB) - "node_filesystem_avail_bytes{mountpoint="/"}"
 2. В качестве решения задания приведите листинг этого файла.
 #
 ***Ответ***
-[Показатели системы.json](https://github.com/Liberaty/mon_hw_2/blob/main/Показатели%20системы.json)
+[**Показатели системы.json**](https://github.com/Liberaty/mon_hw_2/blob/main/Показатели%20системы.json)
 #
 ---
 

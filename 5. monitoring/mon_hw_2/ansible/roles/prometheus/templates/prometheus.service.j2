@@ -1,0 +1,16 @@
+[Unit]
+Description=Prometheus
+After=network.target
+
+[Service]
+User={{ prometheus_user }}
+Group={{ prometheus_user }}
+ExecStart=/opt/prometheus-server/prometheus \
+  --config.file=/opt/prometheus-server/prometheus.yml \
+  --storage.tsdb.path=/opt/prometheus-server/data
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+WorkingDirectory=/opt/prometheus-server/
+
+[Install]
+WantedBy=multi-user.target
