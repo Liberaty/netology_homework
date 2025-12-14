@@ -67,9 +67,9 @@
 #
 ***Ответ:***
 #
-![1.png](https://github.com/Liberaty/k8s_hw_01/blob/main/img/1.png?raw=true)
+![1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-01/img/1.png?raw=true)
 #
-![2.png](https://github.com/Liberaty/k8s_hw_01/blob/main/img/2.png?raw=true)
+![2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-01/img/2.png?raw=true)
 
 ------
 
@@ -80,7 +80,7 @@
 #
 ***Ответ:***
 #
-![3.png](https://github.com/Liberaty/k8s_hw_01/blob/main/img/3.png?raw=true)
+![3.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-01/img/3.png?raw=true)
 
 ------
 

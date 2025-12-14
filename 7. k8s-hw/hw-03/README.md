@@ -28,7 +28,7 @@
 #
 ***Ответ:***
 #
-Создаём манифест [deployment.yaml](https://github.com/Liberaty/k8s_hw_03/blob/main/deployment.yaml)
+Создаём манифест [**deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/deployment.yaml)
 #
 
 ```yaml
@@ -68,7 +68,7 @@ kubectl logs pods/multitool-6d7bd49559-6clc4
 ```
 
 #
-![1.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/1.1.png?raw=true)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/1.1.png?raw=true)
 
 После изучения понял, что ошибка возникает из-за того что порт 80 порт занят
 
@@ -105,7 +105,7 @@ spec:
 
 Перезапускаем и видим результат - под запустился
 #
-![1.2.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/1.2.png?raw=true)
 
 #
 
@@ -113,7 +113,7 @@ spec:
 #
 ***Ответ:***
 #
-Создаём манифест [deployment-replica.yaml](https://github.com/Liberaty/k8s_hw_03/blob/main/deployment-replica.yaml) с изменённым значением в поле **replicas: 2**
+Создаём манифест [**deployment-replica.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/deployment-replica.yaml) с изменённым значением в поле `replicas: 2`
 #
 
 ```yaml
@@ -145,21 +145,21 @@ spec:
 
 Получаем результат запущенного пода с двумя репликами
 #
-![2.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/2.1.png?raw=true)
 
 3. Продемонстрировать количество подов до и после масштабирования.
 #
 ***Ответ:***
 #
-![1.2.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/1.2.png?raw=true)
 #
-![2.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/2.1.png?raw=true)
 
 4. Создать Service, который обеспечит доступ до реплик приложений из п.1.
 #
 ***Ответ:***
 #
-Создаём манифест [service.yaml](https://github.com/Liberaty/k8s_hw_03/blob/main/service.yaml) для сервиса со следующим содержимым
+Создаём манифест [**service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/service.yaml) для сервиса со следующим содержимым
 
 ```yaml
 apiVersion: v1
@@ -182,13 +182,13 @@ spec:
 
 И проверяем:
 #
-![4.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/4.1.png?raw=true)
+![4.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/4.1.png?raw=true)
 
 5. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложений из п.1.
 #
 ***Ответ:***
 #
-Создаём манифест [multitool-pod.yaml](https://github.com/Liberaty/k8s_hw_03/blob/main/multitool-pod.yaml)
+Создаём манифест [**multitool-pod.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/multitool-pod.yaml)
 #
 ```yaml
 apiVersion: v1
@@ -203,7 +203,7 @@ spec:
 
 применяем его и проверяем
 #
-![5.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/5.1.png?raw=true)
+![5.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/5.1.png?raw=true)
 
 ------
 
@@ -213,7 +213,7 @@ spec:
 #
 ***Ответ***
 #
-Создаем манифест [init-deployment.yaml](https://github.com/Liberaty/k8s_hw_03/blob/main/init-deployment.yaml) и применяем его командой ```kubectl apply -f init-deployment.yaml```
+Создаем манифест [**init-deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/init-deployment.yaml) и применяем его командой `kubectl apply -f init-deployment.yaml`
 
 ```yaml
 apiVersion: apps/v1
@@ -248,13 +248,13 @@ spec:
 #
 Убеждаемся, что контейнер с nginx не стартует (статус Init)
 #
-![2.2.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/2.2.1.png?raw=true)
+![2.2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/2.2.1.png?raw=true)
 
 3. Создать и запустить Service. Убедиться, что Init запустился.
 #
 ***Ответ***
 #
-Создаем [init-service.yaml](https://github.com/Liberaty/k8s_hw_03/blob/main/init-service.yaml) c selector ```app: nginx-init``` и запускаем командой ```kubectl apply -f init-service.yaml```
+Создаем [**init-service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/init-service.yaml) c selector `app: nginx-init` и запускаем командой `kubectl apply -f init-service.yaml`
 
 ```yaml
 apiVersion: v1
@@ -271,13 +271,13 @@ spec:
     app: nginx-init
 ```
 
-![2.3.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/2.3.1.png?raw=true)
+![2.3.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/2.3.1.png?raw=true)
 
 4. Продемонстрировать состояние пода до и после запуска сервиса.
 #
 ***Ответ***
 #
-![2.4.1.png](https://github.com/Liberaty/k8s_hw_03/blob/main/img/2.4.1.png?raw=true)
+![2.4.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-03/img/2.4.1.png?raw=true)
 
 
 ------

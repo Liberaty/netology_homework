@@ -27,29 +27,29 @@
 1. Создать Deployment приложения, состоящего из двух контейнеров (nginx и multitool), с количеством реплик 3 шт.
 #
 ***Ответ***
-Создаём манифест [deployment.yaml](https://github.com/Liberaty/k8s_hw_04/blob/main/deployment.yaml) с двумя контейнерами и тремя репликами
+Создаём манифест [**deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/deployment.yaml) с двумя контейнерами и тремя репликами
 #
-![1.1.png](https://github.com/Liberaty/k8s_hw_04/blob/main/img/1.1.png?raw=true)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/img/1.1.png?raw=true)
 #
 2. Создать Service, который обеспечит доступ внутри кластера до контейнеров приложения из п.1 по порту 9001 — nginx 80, по 9002 — multitool 8080.
 #
 ***Ответ***
-Создаём манифест [service.yaml](https://github.com/Liberaty/k8s_hw_04/blob/main/service.yaml) с необходимыми портами
+Создаём манифест [**service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/service.yaml) с необходимыми портами
 #
-![1.2.png](https://github.com/Liberaty/k8s_hw_04/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/img/1.2.png?raw=true)
 #
 3. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложения из п.1 по разным портам в разные контейнеры.
 #
 ***Ответ***
-Создаём манифест [multitool.yaml](https://github.com/Liberaty/k8s_hw_04/blob/main/multitool.yaml) для отдельного Pod'a с приложением multitool, чтобы убедиться с помощью curl, что из пода есть доступ до приложения по портам 9001 и 9002 в разные контейнеры.
+Создаём манифест [**multitool.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/multitool.yaml) для отдельного Pod'a с приложением multitool, чтобы убедиться с помощью curl, что из пода есть доступ до приложения по портам 9001 и 9002 в разные контейнеры.
 #
-![1.3.png](https://github.com/Liberaty/k8s_hw_04/blob/main/img/1.3.png?raw=true)
+![1.3.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/img/1.3.png?raw=true)
 #
 4. Продемонстрировать доступ с помощью `curl` по доменному имени сервиса.
 #
 ***Ответ***
 #
-![1.4.png](https://github.com/Liberaty/k8s_hw_04/blob/main/img/1.4.png?raw=true)
+![1.4.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/img/1.4.png?raw=true)
 #
 5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 #
@@ -65,15 +65,15 @@
 #
 ***Ответ***
 #
-Создаём манифест [service-nodeport.yaml](https://github.com/Liberaty/k8s_hw_04/blob/main/service-nodeport.yaml) и создаём по нему сервис **nodeport-service**
+Создаём манифест [**service-nodeport.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/service-nodeport.yaml) и создаём по нему сервис **nodeport-service**
 #
-![2.1.png](https://github.com/Liberaty/k8s_hw_04/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/img/2.1.png?raw=true)
 #
 2. Продемонстрировать доступ с помощью браузера или `curl` с локального компьютера.
 #
 ***Ответ***
 #
-![2.2.png](https://github.com/Liberaty/k8s_hw_04/blob/main/img/2.2.png?raw=true)
+![2.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-04/img/2.2.png?raw=true)
 #
 3. Предоставить манифест и Service в решении, а также скриншоты или вывод команды п.2.
 #

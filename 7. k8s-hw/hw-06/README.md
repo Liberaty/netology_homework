@@ -32,9 +32,9 @@
 #
 ***Ответ***
 
-Создаём манифест [**deployment.yaml**](https://github.com/Liberaty/k8s_hw_06/blob/main/deployment.yaml) и запускаем его
+Создаём манифест [**deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-06/deployment.yaml) и запускаем его
 
-![1.1.png](https://github.com/Liberaty/k8s_hw_06/blob/main/img/1.1.png?raw=true)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-06/img/1.1.png?raw=true)
 
 2. Сделать так, чтобы busybox писал каждые пять секунд в некий файл в общей директории.
 #
@@ -54,7 +54,7 @@
 
 Проверяем, что multitool читает файл, который периодически обновляется командой ```kubectl logs -l app=shared-volume -c multitool```
 
-![1.4.png](https://github.com/Liberaty/k8s_hw_06/blob/main/img/1.4.png?raw=true)
+![1.4.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-06/img/1.4.png?raw=true)
 
 5. Предоставить манифесты Deployment в решении, а также скриншоты или вывод команды из п. 4.
 #
@@ -74,9 +74,9 @@
 #
 ***Ответ***
 
-Создаём манифест [**daemonset.yaml**](https://github.com/Liberaty/k8s_hw_06/blob/main/daemonset.yaml), запускаем его и проверяем статус
+Создаём манифест [**daemonset.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-06/daemonset.yaml), запускаем его и проверяем статус
 
-![2.1.png](https://github.com/Liberaty/k8s_hw_06/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-06/img/2.1.png?raw=true)
 
 2. Обеспечить возможность чтения файла `/var/log/syslog` кластера MicroK8S.
 #
@@ -107,7 +107,7 @@
 
 Для этого подключаюсь к pod с контейнером multitool и читаю файл по пути ***/nodes-logs/syslog***
 
-![2.3.png](https://github.com/Liberaty/k8s_hw_06/blob/main/img/2.3.png?raw=true)
+![2.3.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-06/img/2.3.png?raw=true)
 
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 #

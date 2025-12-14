@@ -28,7 +28,7 @@
 #
 ***Ответ***
 
-Создаем [*deployment.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/deployment.yaml) состоящего из двух контейнеров.
+Создаем [**deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/deployment.yaml) состоящего из двух контейнеров.
 
 2. Решить возникшую проблему с помощью ConfigMap.
 #
@@ -36,7 +36,7 @@
 
 Проблема возникает потому, что оба контейнера по умолчанию пытаются слушать порт 80.
 
-Решаем её созданием [*multitool-config.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/multitool-config.yaml), где добавим ключ:значение ```HTTP_PORT: "8080"``` и передадим ее через переменную ```env``` в deployment и заменим в контейнере multitool порт c 80 на 8080.
+Решаем её созданием [**multitool-config.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/multitool-config.yaml), где добавим ключ:значение ```HTTP_PORT: "8080"``` и передадим ее через переменную ```env``` в deployment и заменим в контейнере multitool порт c 80 на 8080.
 
 3. Продемонстрировать, что pod стартовал и оба конейнера работают.
 #
@@ -44,23 +44,23 @@
 
 Сначала запускаем ConfigMap'с, так как pod выпадет в ошибку, если не будет этих переменных.
 
-![1.3.1.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/1.3.1.png?raw=true)
+![1.3.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/1.3.1.png?raw=true)
 
 Далее запускаем deployment и проверяем его статус
 
-![1.3.2.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/1.3.2.png?raw=true)
+![1.3.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/1.3.2.png?raw=true)
 
 4. Сделать простую веб-страницу и подключить её к Nginx с помощью ConfigMap. Подключить Service и показать вывод curl или в браузере.
 #
 ***Ответ***
 
-Заранее создал страницу через ConfigMap [*nginx-html.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/nginx-html.yaml)
+Заранее создал страницу через ConfigMap [**nginx-html.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/nginx-html.yaml)
 
 подключаем ее через volume в Deployment и добавляем ее по пути mountPath: */usr/share/nginx/html* в контейнер nginx
 
-Подключаем [service.yaml](https://github.com/Liberaty/k8s_hw_08/blob/main/service.yaml) и проверяем с помощью curl
+Подключаем [**service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/service.yaml) и проверяем с помощью curl
 
-![1.4.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/1.4.png?raw=true)
+![1.4.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/1.4.png?raw=true)
 
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 #
@@ -76,17 +76,17 @@
 #
 ***Ответ***
 
-Создаём манифет [*deployment-https.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/deployment-https.yaml)
+Создаём манифет [**deployment-https.yaml**](https://github.com/Liberaty/k8s_hw_08/blob/main/deployment-https.yaml)
 
 2. Создать собственную веб-страницу и подключить её как ConfigMap к приложению.
 #
 ***Ответ***
 
-Используем [*nginx-html.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/nginx-html.yaml), которую создал для прошлого задания.
+Используем [**nginx-html.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/nginx-html.yaml), которую создал для прошлого задания.
 
 Подключаем ее к Deployment через volume
 
-![2.2.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/2.2.png?raw=true)
+![2.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/2.2.png?raw=true)
 
 3. Выпустить самоподписной сертификат SSL. Создать Secret для использования сертификата.
 #
@@ -94,29 +94,29 @@
 
 Генерируем самоподписной сертификат SSL командой ```openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=my-nginx/O=netology"``` и создаем Secret для его использования
 
-Перекодируем оба файла в base64 и добавляем их в ***secret-ssl.yaml***
+Перекодируем оба файла в base64 и добавляем их в [**secret-ssl.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/secret-ssl.yaml-exampl)
 
-![2.3.1.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/2.3.1.png?raw=true)
+![2.3.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/2.3.1.png?raw=true)
 
-Создаём манифест [*nginx-conf.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/nginx-conf.yaml)
+Создаём манифест [**nginx-conf.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/nginx-conf.yaml)
 
-![2.3.2.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/2.3.2.png?raw=true)
+![2.3.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/2.3.2.png?raw=true)
 
-Только потом запускаем ***deployment-https.yaml*** и проверяем статус
+Только потом запускаем [**deployment-https.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/deployment-https.yaml) и проверяем статус
 
-![2.3.3.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/2.3.3.png?raw=true)
+![2.3.3.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/2.3.3.png?raw=true)
 
 4. Создать Ingress и необходимый Service, подключить к нему SSL в вид. Продемонстировать доступ к приложению по HTTPS. 
 #
 ***Ответ***
 
-Создаём манифесты [*service-https.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/service-https.yaml) и [*ingress.yaml*](https://github.com/Liberaty/k8s_hw_08/blob/main/ingress.yaml), запускаем и проверяем статус
+Создаём манифесты [**service-https.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/service-https.yaml) и [**ingress.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/ingress.yaml), запускаем и проверяем статус
 
-![2.4.1.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/2.4.1.png?raw=true)
+![2.4.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/2.4.1.png?raw=true)
 
 Теперь проверяем с помощью curl, что страница доступна через https
 
-![2.4.2.png](https://github.com/Liberaty/k8s_hw_08/blob/main/img/2.4.2.png?raw=true)
+![2.4.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-08/img/2.4.2.png?raw=true)
 
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 #

@@ -29,25 +29,25 @@
 #
 ***Ответ***
 
-Создаём манифест [frontend-deployment.yaml](https://github.com/Liberaty/k8s_hw_05/blob/main/frontend-deployment.yaml) с образом nginx и количеством реплик 3шт.
+Создаём манифест [**frontend-deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/frontend-deployment.yaml) с образом nginx и количеством реплик 3шт.
 
-![1.1.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/1.1.png?raw=true)
+![1.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/1.1.png?raw=true)
 
 2. Создать Deployment приложения _backend_ из образа multitool. 
 #
 ***Ответ***
 
-Создаём манифест [backend-deployment.yaml](https://github.com/Liberaty/k8s_hw_05/blob/main/backend-deployment.yaml) с образом multitool.
+Создаём манифест [**backend-deployment.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/backend-deployment.yaml) с образом multitool.
 
-![1.2.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/1.2.png?raw=true)
+![1.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/1.2.png?raw=true)
 
 3. Добавить Service, которые обеспечат доступ к обоим приложениям внутри кластера.
 #
 ***Ответ***
 
-Создаём манифесты [backend-service.yaml](https://github.com/Liberaty/k8s_hw_05/blob/main/backend-service.yaml) и [frontend-service.yaml](https://github.com/Liberaty/k8s_hw_05/blob/main/frontend-service.yaml).
+Создаём манифесты [**backend-service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/backend-service.yaml) и [**frontend-service.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/frontend-service.yaml).
 
-![1.3.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/1.3.png?raw=true)
+![1.3.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/1.1.png?raw=true)
 
 4. Продемонстрировать, что приложения видят друг друга с помощью Service.
 #
@@ -55,11 +55,11 @@
 
 Сначала проверяю статус всех подов и сервисов
 
-![1.4.1.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/1.4.1.png?raw=true)
+![1.4.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/1.4.1.png?raw=true)
 
 Далее, используя backend под, тестирую доступ к сервисам
 
-![1.4.2.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/1.4.2.png?raw=true)
+![1.4.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/1.4.2.png?raw=true)
 
 5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 #
@@ -77,19 +77,19 @@
 
 Включил ingress командой `microk8s.enable ingress`
 
-![2.1.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/2.1.png?raw=true)
+![2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/2.1.png?raw=true)
 
 2. Создать Ingress, обеспечивающий доступ снаружи по IP-адресу кластера MicroK8S так, чтобы при запросе только по адресу открывался _frontend_ а при добавлении /api - _backend_.
 #
 ***Ответ***
 
-Создаём манифест [ingress.yaml](https://github.com/Liberaty/k8s_hw_05/blob/main/ingress.yaml) и запускаем его.
+Создаём манифест [**ingress.yaml**](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/ingress.yaml) и запускаем его.
 
-![2.2.1.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/2.2.1.png?raw=true)
+![2.2.1.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/2.2.1.png?raw=true)
 
 И теперь смотрим статус
 
-![2.2.2.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/2.2.2.png?raw=true)
+![2.2.2.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/2.2.2.png?raw=true)
 
 3. Продемонстрировать доступ с помощью браузера или `curl` с локального компьютера.
 #
@@ -97,7 +97,7 @@
 
 Проверяем доступность адресов по IP адресу с ноды.
 
-![2.3.png](https://github.com/Liberaty/k8s_hw_05/blob/main/img/2.3.png?raw=true)
+![2.3.png](https://github.com/Liberaty/netology_homework/blob/main/7.%20k8s-hw/hw-05/img/2.3.png?raw=true)
 
 
 4. Предоставить манифесты и скриншоты или вывод команды п.2.
