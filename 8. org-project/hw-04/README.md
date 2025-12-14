@@ -70,7 +70,7 @@
 
 - База данных:
 
-![1.7.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.7.png?raw=true)
+![1.6.png](https://github.com/Liberaty/netology_homework/blob/main/8.%20org-project/hw-04/img/1.6.png?raw=true)
 
 2. Настроим с помощью Terraform кластер Kubernetes:
 
