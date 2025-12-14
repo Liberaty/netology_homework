@@ -2,18 +2,18 @@
 
 ## Подготовка к выполнению
 
-0. Добавил код terraform, который при выполнении создаёт инфраструктуру, а так же "${path.module}/playbook/inventory/prod.yml" по которому отрабатывает сразу Ansible, так как устал делать это руками... (шаблон .tftpl [тут](https://github.com/Liberaty/ans_hw_3/blob/main/terraform/inventory.tftpl))
+0. Добавил код terraform, который при выполнении создаёт инфраструктуру, а так же "${path.module}/playbook/inventory/prod.yml" по которому отрабатывает сразу Ansible, так как устал делать это руками... (шаблон .tftpl [**тут**](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-03/terraform/inventory.tftpl))
 
 1. Подготовьте в Yandex Cloud три хоста: для `clickhouse`, для `vector` и для `lighthouse`.
 
 ***Ответ:*** Готовая инфраструктура, а так же переписал с ubuntu на centos9 для изучения
-![3-podgotovka.png](https://github.com/Liberaty/ans_hw_3/blob/main/img/3-podgotovka.png?raw=true)
+![3-podgotovka.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-03/img/3-podgotovka.png?raw=true)
 
 ## Основная часть
 
 1. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает LightHouse.
 
-***Ответ:*** Дописал, можно посмотреть [здесь](https://github.com/Liberaty/ans_hw_3/blob/main/terraform/playbook/site.yml)
+***Ответ:*** Дописал, можно посмотреть [здесь](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-03/terraform/playbook/site.yml)
 
 2. При создании tasks рекомендую использовать модули: `get_url`, `template`, `yum`, `apt`.
 
@@ -25,12 +25,12 @@
 
 4. Подготовьте свой inventory-файл `prod.yml`.
 
-***Ответ:*** Его мне создаёт terraform по [шаблону](https://github.com/Liberaty/ans_hw_3/blob/main/terraform/inventory.tftpl)
+***Ответ:*** Его мне создаёт terraform по [шаблону](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-03/terraform/inventory.tftpl)
 
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
 
 ***Ответ:*** 
-![3.5.png](https://github.com/Liberaty/ans_hw_3/blob/main/img/3.5.png)
+![3.5.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-03/img/3.5.png?raw=true)
 
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 

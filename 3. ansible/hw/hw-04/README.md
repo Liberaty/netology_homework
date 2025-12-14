@@ -28,19 +28,19 @@
 
 ***Ответ:***
 
-![4.1.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.1.png?raw=true)
+![4.1.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.1.png?raw=true)
 
 2. При помощи `ansible-galaxy` скачайте себе эту роль.
 
 ***Ответ:***
 
-![4.2.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.2.png?raw=true)
+![4.2.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.2.png?raw=true)
 
 3. Создайте новый каталог с ролью при помощи `ansible-galaxy role init vector-role`.
 
 ***Ответ:***
 
-![4.3.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.3.png?raw=true)
+![4.3.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.3.png?raw=true)
 
 4. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`. 
 5. Перенести нужные шаблоны конфигов в `templates`.
@@ -50,17 +50,17 @@
 
 ***Ответ:***
 
-![4.8.1.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.8.1.png?raw=true)
+![4.8.1.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.8.1.png?raw=true)
 
-![4.8.2.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.8.2.png?raw=true)
+![4.8.2.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.8.2.png?raw=true)
 
-![4.8.3.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.8.3.png?raw=true)
+![4.8.3.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.8.3.png?raw=true)
 
 9. Переработайте playbook на использование roles. Не забудьте про зависимости LightHouse и возможности совмещения `roles` с `tasks`.
 
 ***Ответ:***
 
-![4.9.png](https://github.com/Liberaty/ans_hw_4/blob/main/img/4.9.png?raw=true)
+![4.9.png](https://github.com/Liberaty/netology_homework/blob/main/3.%20ansible/hw/hw-04/img/4.9.png?raw=true)
 
 10. Выложите playbook в репозиторий.
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
@@ -71,7 +71,7 @@
 
 [Ссылка](https://github.com/Liberaty/vector-role) на vector
 
-[Ссылка](https://github.com/Liberaty/ans_hw_4) на playbook
+[Ссылка](https://github.com/Liberaty/netology_homework/tree/main/3.%20ansible/hw/hw-04) на playbook
 
 ---
 
