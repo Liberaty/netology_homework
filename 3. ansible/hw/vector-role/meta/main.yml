@@ -1,0 +1,23 @@
+galaxy_info:
+  author: liberaty
+  description: vector-role
+  namespace: liberaty
+  role_name: vector
+#  company: your company (optional)
+  license: MIT
+  min_ansible_version: "2.1"
+  galaxy_tags:
+    - vector
+    - logging
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+
+dependencies: []

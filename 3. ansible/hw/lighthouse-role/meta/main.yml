@@ -1,0 +1,23 @@
+galaxy_info:
+  author: liberaty
+  description: Lighthouse-role
+  namespace: liberaty
+  role_name: vighthouse
+#  company: your company (optional)
+  license: MIT
+  min_ansible_version: "2.1"
+  galaxy_tags:
+    - lighthouse-role
+    - logging
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+
+dependencies: []

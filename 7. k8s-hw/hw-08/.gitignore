@@ -1,0 +1,3 @@
+secret-ssl.yaml
+tls*.crt
+tls*.key

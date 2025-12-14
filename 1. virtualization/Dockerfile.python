@@ -1,0 +1,43 @@
+# Stage 1: Этап сборки (Устанавливаем зависимости)
+FROM python:3.9-slim AS builder
+
+# Обновляем пакетный менеджер и устанавливаем минимальные утилиты для сборки
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Создаём рабочую директорию
+WORKDIR /app
+
+# Копируем и устанавливаем зависимости
+COPY requirements.txt ./
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# Stage 2: Этап создания финального образа
+FROM python:3.9-slim
+
+# Создаём не привилигированого пользователя без домашней папки
+RUN useradd --no-create-home --shell /usr/sbin/nologin app
+
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем только установленные зависимости из билдера
+COPY --from=builder /install /usr/local
+
+# Копируем код приложения (только нужные файлы без кешей)
+COPY main.py /app/main.py
+
+# Устанавливаем права на директорию
+RUN chown -R app:app /app
+
+# Переключаемся на безопасного пользователя
+USER app
+
+# Оптимизируем поведение Python
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# Запускаем приложение
+ENTRYPOINT ["python", "main.py"]

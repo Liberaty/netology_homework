@@ -1,0 +1,5 @@
+---
+# defaults file for vector
+vector_version: "0.42.0"
+vector_os_user: "vector"
+vector_os_group: "vector"

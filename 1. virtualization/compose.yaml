@@ -1,0 +1,66 @@
+# Определяем версию формата Docker Compose
+version: '3.8'
+
+# Подключаем файл "proxy.yaml" с помощью директивы include
+include:
+  - proxy.yaml
+
+# Используем yaml anchor что-бы не писать одни и теже пораметры в каждом сервисе
+x-deploy: &deploy-dev
+  deploy:
+    resources:
+      limits:
+        cpus: "1"
+        memory: 512M
+      reservations:
+        memory: 256M
+x-env_file: &env_file
+  env_file:
+    - .env
+x-restart: &restart
+  restart: always
+
+# Описываем сервисы
+services:
+  # Сервис app
+  app:
+    # Используем образ из Yandex Cloud Container Registry
+    image: cr.yandex/crp4d5q356d0rvush9s5/my-python-app:1.0
+    # Добавляем контейнер в сеть backend
+    networks:
+      backend:
+        # Назначаем фиксированный IPv4-адрес для контейнера
+        ipv4_address: 172.20.0.5
+    <<: [*deploy-dev, *env_file, *restart]
+    # Передаем дополнительные переменные окружения для подключения к MySQL
+    environment:
+      DB_HOST: db  # Сетевое имя сервиса базы данных
+      DB_NAME: ${MYSQL_DATABASE}  # Имя базы данных (берется из .env)
+      DB_USER: ${MYSQL_USER}  # Пользователь базы данных (берется из .env)
+      DB_PASSWORD: ${MYSQL_PASSWORD}  # Пароль пользователя базы данных (берется из .env)
+
+  # Сервис db
+  db:
+    # Используем официальный образ MySQL 8
+    image: mysql:8
+    # Добавляем контейнер в сеть backend
+    networks:
+      backend:
+        # Назначаем фиксированный IPv4-адрес для контейнера
+        ipv4_address: 172.20.0.10
+    <<: [*deploy-dev, *env_file, *restart]
+    # Передаем переменные окружения для настройки MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_HOST: "%"
+    # Используем volume для хранения данных MySQL
+    volumes:
+      - db_data:/var/lib/mysql
+
+# Определяем объемы
+volumes:
+  db_data:
+    # Объем для хранения данных MySQL

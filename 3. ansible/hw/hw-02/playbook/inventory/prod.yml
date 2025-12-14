@@ -1,0 +1,18 @@
+---
+clickhouse:
+  hosts:
+    ubuntu-1:
+      ansible_host: 89.169.158.245
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+      ansible_python_interpreter: /usr/bin/python3
+      
+vector:
+  hosts:
+    ubuntu-2:
+      ansible_host: 89.169.142.61
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+      ansible_python_interpreter: /usr/bin/python3

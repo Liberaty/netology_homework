@@ -1,0 +1,21 @@
+---
+prod:
+  hosts:
+    centos7:
+      ansible_host: localhost
+      ansible_connection: local
+    localhost1:
+      ansible_connection: local
+    Ubuntu22:
+      ansible_connection: local
+      ansible_host: localhost
+develop:
+  hosts:
+    centos8:
+      ansible_host: localhost
+      ansible_connection: local
+    localhost2:
+      ansible_connection: local
+    Ubuntu24:
+      ansible_connection: local
+      ansible_host: localhost
